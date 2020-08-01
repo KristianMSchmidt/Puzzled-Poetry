@@ -20,6 +20,7 @@ let enMiddag = [
     "Vinker os den dunkle Celle."
 ];
 
+
 function show_poem(digt){
     let l = digt.length;
     for (let i = 0; i < l; i++) {
@@ -72,3 +73,5 @@ document.getElementById("blandKnap").addEventListener("click", function(){
     document.getElementById("supposed").innerHTML="";
     show_poem(shuffle(enMiddag));
 });
+
+//
