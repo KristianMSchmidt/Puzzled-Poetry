@@ -1,2 +1,2 @@
-# Poem's Puzzle
- A crazy funny app
+# Poet's Puzzles
+A crazy funny app
