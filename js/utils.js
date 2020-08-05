@@ -1,66 +1,74 @@
 export function getVerses(poem){
     let antal_strofer = poem.length;
-    let verses = [];
+    let allVerses = [];
     for (let i = 0; i < antal_strofer; i++) {
         let antal_vers = poem[i].length;
         for (let j=0; j<antal_vers; j++){
-            verses.push(poem[i][j])
+            allVerses.push(poem[i][j])
         }
     }
-    console.log(verses);
-    return verses;
+    return allVerses;
 }
 
 export function showPoem(digt){
+    var counter = 0;
     for (let i = 0; i < digt.length; i++) {
-        console.log(i)
-        console.log(digt[i])
+  
         for (let j = 0; j < digt[i].length; j++) { 
             let node = document.createElement("span"); 
             let node2 = document.createElement("br"); 
             node.innerHTML=digt[i][j];
-            //node.id = "vers" + j;
+            node.id = "vers" + counter;
             document.getElementById("digt").appendChild(node);
             document.getElementById("digt").appendChild(node2);
+            counter += 1;
         }
         let node = document.createElement("br"); 
         document.getElementById("digt").appendChild(node);
     }
 }
  
- 
 export function setEventHandlers(digt){
+    let counter = 0;
     let l = digt.length;
-    for (let i = 0; i < l; i++) {
-        document.getElementById("vers"+i).addEventListener("click", e => {
-            if (!window.aktivt_vers){
-                window.aktivt_vers = i;
-            }
-            else {
-                var cache = document.getElementById("vers" + i).innerHTML; 
-                console.log(cache);
-                document.getElementById("vers" + i).innerHTML = 
-                        document.getElementById("vers" + window.aktivt_vers).innerHTML; 
-                document.getElementById("vers"+window.aktivt_vers).innerHTML = cache; 
-                delete window.aktivt_vers;
-            }
-        });
-    };
+    for (let j = 0; j < digt.length; j++) {  
+        for (let i = 0; i < digt[j].length; i++) { 
+            console.log(counter)
+            document.getElementById("vers"+counter).addEventListener("click", e => {
+                console.log(counter)
+                console.log("trykket på ", document.getElementById("vers"+15));
+                if (!window.aktivt_vers){
+                    window.aktivt_vers = counter;
+                }
+                else {
+                    var cache = document.getElementById("vers" + counter).innerHTML; 
+                    document.getElementById("vers" + counter).innerHTML = 
+                            document.getElementById("vers" + window.aktivt_vers).innerHTML; 
+                    document.getElementById("vers"+window.aktivt_vers).innerHTML = cache; 
+                    delete window.aktivt_vers;
+                }
+            });
+        counter +=1;
+        };
+    }    
+
     document.getElementById("blandKnap").addEventListener("click", function(){
-        /*
+        console.log("tryket")
         document.getElementById("digt").innerHTML="";
-        var poemCopy = clone(enMiddag);
+        var poemCopy = clone(digt);
         showPoem(shuffle(poemCopy));
-        */
     });            
 } 
 
 export function shuffle(digt){
-    for (var i = digt.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = digt[i];
-        digt[i] = digt[j];
-        digt[j] = temp;
+    let antal_strofer = digt.length;
+    for (let k = 0; k < antal_strofer; k++) {
+        for (var i = digt[k].length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = digt[k][i];
+            digt[k][i] = digt[k][j];
+            digt[k][j] = temp;
+        }
     }
     return digt;
 }
