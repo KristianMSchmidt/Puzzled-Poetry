@@ -2,18 +2,15 @@ let enMiddag = [
     "See, vort lille Taffel speiler", 
     "Sig i Floden – See Forellen",
     "Pynter Fadet med sin sidste,",
-    "Stive, gratieuse Sprællen!",
-
+    "Stive, gratieuse Sprællen!", 
     "See, Tokaiervinen gløder",
     "I de tindrende Krystaller",
     "Skjønnere, end selv i sine",
     "Druers duftomflorte Skaller!",
-
     "Og Orangens søde Skive",
     "I din Purpurmunds Indfatning",
     "Fik for Tabet af sin Guldhud,",
     "En guddommelig Erstatning.", 
-
     "Ak, for Tabet af saameget",
     "Vinker os nu Sydens Fjelde,",
     "Vinker os det gamle Kloster,",
@@ -74,4 +71,4 @@ document.getElementById("blandKnap").addEventListener("click", function(){
     show_poem(shuffle(enMiddag));
 });
 
-//
+        
