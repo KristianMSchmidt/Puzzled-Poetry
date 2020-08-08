@@ -11,17 +11,14 @@ export function getVerses(poem){
 }
 
 export function showPoem(digt){
-    var counter = 0;
     for (let i = 0; i < digt.length; i++) {
-  
-        for (let j = 0; j < digt[i].length; j++) { 
+          for (let j = 0; j < digt[i].length; j++) { 
             let node = document.createElement("span"); 
             let node2 = document.createElement("br"); 
             node.innerHTML=digt[i][j];
-            node.id = "vers" + counter;
+            node.id = "s" + i + "v" + j;
             document.getElementById("digt").appendChild(node);
             document.getElementById("digt").appendChild(node2);
-            counter += 1;
         }
         let node = document.createElement("br"); 
         document.getElementById("digt").appendChild(node);
@@ -29,34 +26,32 @@ export function showPoem(digt){
 }
  
 export function setEventHandlers(digt){
-    let counter = 0;
     let l = digt.length;
     for (let j = 0; j < digt.length; j++) {  
         for (let i = 0; i < digt[j].length; i++) { 
-            console.log(counter)
-            document.getElementById("vers"+counter).addEventListener("click", e => {
-                console.log(counter)
+            document.getElementById("s"+j+"v"+i).addEventListener("click", e => {
                 console.log("trykket på ", document.getElementById("vers"+15));
+                console.log("Trykket på ", "s"+j+"v"+i)
                 if (!window.aktivt_vers){
-                    window.aktivt_vers = counter;
+                    window.aktivt_vers = "s"+j+"v"+i;
                 }
                 else {
-                    var cache = document.getElementById("vers" + counter).innerHTML; 
-                    document.getElementById("vers" + counter).innerHTML = 
-                            document.getElementById("vers" + window.aktivt_vers).innerHTML; 
-                    document.getElementById("vers"+window.aktivt_vers).innerHTML = cache; 
+                    var cache = document.getElementById("s"+j+"v"+i).innerHTML; 
+                    document.getElementById("s"+j+"v"+i).innerHTML = 
+                            document.getElementById(window.aktivt_vers).innerHTML; 
+                    document.getElementById(window.aktivt_vers).innerHTML = cache; 
                     delete window.aktivt_vers;
                 }
             });
-        counter +=1;
         };
     }    
-
     document.getElementById("blandKnap").addEventListener("click", function(){
-        console.log("tryket")
         document.getElementById("digt").innerHTML="";
         var poemCopy = clone(digt);
-        showPoem(shuffle(poemCopy));
+        let blandet = shuffle(poemCopy);
+        showPoem(blandet);
+        setEventHandlers(blandet);
+
     });            
 } 
 
@@ -71,6 +66,7 @@ export function shuffle(digt){
         }
     }
     return digt;
+
 }
 
 export function clone(obj) {
