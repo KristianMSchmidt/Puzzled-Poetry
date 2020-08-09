@@ -3,27 +3,24 @@
 
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
 <link rel="stylesheet" href="css/style.css"> 
+-->
 </head>
 
 <body>
 <h3>Puzzled Poetry</h3>
-<p>Du indsætter versene ved at klikke med musen</p>
-<div class="row">
-    <div class="column" style="background-color:#aaa;">
-        <h3>En middag</h3>
-        <p id="supposed"></p>
-        <button>Afprøv dit gæt</button>
-    </div>
-    
-    <div class="column" style="background-color:#bbb;">
-        <h3>En middag</h3>
-        <p id="digt"></p>   
-        <button id="blandKnap">Bland digt</button>
+<p>Du ombytter versene ved at klikke med musen</p>
+<div id="poem_area" style="background-color:#bbb;">
+    <h4 id = "title">Digttitel</h4>
+    <p id="digt"></p>   
+    <button id="submit">Afprøv dit gæt</button>
+    <button id="permute_button">Bland digt igen</button>
+    <button id="new_poem_button">Nyt digt</button>
 
-    </div>
 </div>
-<script src="js/main.js"></script>
+
+<script src="js/main.js" type="module"></script>
 
 </body>
 </html>
