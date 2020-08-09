@@ -40,6 +40,20 @@ export default class Poem{
         this.currentPermutation = array;
     }
 
+    showMistakes(){
+        for (let i=0; i<this.currentPermutation.length; i++){
+            if (this.vers[i+1] !== this.vers[this.currentPermutation[i]]){
+                document.getElementById("vers"+i).style = "color:red";      
+            }
+        }
+    }
+
+    makeBlack(){
+        for (let i=0; i<this.currentPermutation.length; i++){
+            document.getElementById("vers"+i).style = "color:black";      
+        }
+    }
+
     isSolved(){
         let answer = true;
         console.log(this.currentPermutation);
@@ -48,7 +62,7 @@ export default class Poem{
             if (this.vers[i+1] !== this.vers[this.currentPermutation[i]]){
                 answer = false;
             }
-        }
+       }
         return answer;
     }
  
