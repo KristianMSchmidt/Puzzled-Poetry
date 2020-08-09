@@ -75,18 +75,6 @@ export default class Poem{
     }    
 }
 
-/*
-digt = new Poem(enMiddag);
-//console.log(digt.currentPermutation);
 
-//console.log(digt.isSolved());
-digt.shuffle();
-
-//console.log(digt.currentPermutation);
-console.log(digt.isSolved());
-
-//console.log(digt.currentPermutation);
-
-*/
 
 
