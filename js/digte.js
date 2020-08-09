@@ -25,12 +25,3 @@ export const enMiddag = [
     ]
 ];
 
-/*
-class 
-   shuffle
-   aktuelt tilstand
-   original
-   control_tjek
-   show
-
-*/
