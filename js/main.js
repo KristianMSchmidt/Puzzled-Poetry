@@ -1,9 +1,17 @@
-import {enMiddag} from './digte.js';
-import {showPoem, clone, shuffle, setEventHandlers} from './utils.js'
+import {allPoems} from './digte.js'
+import {eventHandlers} from './eventHandlers.js'
 
 
-let klon = clone(enMiddag);
-shuffle(klon)
-showPoem(klon);
-setEventHandlers(enMiddag);
+// vælg tilfældigt digt fra samlingen
+let digt = allPoems[Math.floor(Math.random() * allPoems.length)];
+
+
+// bland versene
+digt.shuffle();
+// vis digtet på siden
+digt.setUpHTML();
+digt.show();
+
+//sæt eventhandlers op
+eventHandlers(digt);
 

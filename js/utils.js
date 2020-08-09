@@ -1,30 +1,4 @@
-export function getVerses(poem){
-    let antal_strofer = poem.length;
-    let allVerses = [];
-    for (let i = 0; i < antal_strofer; i++) {
-        let antal_vers = poem[i].length;
-        for (let j=0; j<antal_vers; j++){
-            allVerses.push(poem[i][j])
-        }
-    }
-    return allVerses;
-}
 
-export function showPoem(digt){
-    for (let i = 0; i < digt.length; i++) {
-          for (let j = 0; j < digt[i].length; j++) { 
-            let node = document.createElement("span"); 
-            let node2 = document.createElement("br"); 
-            node.innerHTML=digt[i][j];
-            node.id = "s" + i + "v" + j;
-            document.getElementById("digt").appendChild(node);
-            document.getElementById("digt").appendChild(node2);
-        }
-        let node = document.createElement("br"); 
-        document.getElementById("digt").appendChild(node);
-    }
-}
- 
 export function setEventHandlers(digt){
     let l = digt.length;
     for (let j = 0; j < digt.length; j++) {  
@@ -66,7 +40,6 @@ export function shuffle(digt){
         }
     }
     return digt;
-
 }
 
 export function clone(obj) {
