@@ -1,2 +1,2 @@
-# Puzzled Poetry
-A crazy funny app
+# Puzzled Poetr
+En quiz til min julefrokost december 2020. 
